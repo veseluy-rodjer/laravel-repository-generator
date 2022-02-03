@@ -11,13 +11,10 @@ use {{ namespacedModel }};
  */
 class DummyClass extends BaseRepository implements DummyClassInterface
 {
-    /**
-     * UserRepository constructor.
-     *
-     * @param {{ Model }} $model
-     */
+    protected {{ Model }} $model;
+
     public function __construct({{ Model }} $model)
     {
-        parent::__construct($model);
+        $this->model = $model;
     }
 }
