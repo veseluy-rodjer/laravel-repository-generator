@@ -5,10 +5,6 @@ namespace VeseluyRodjer\RepositoryGenerator\Repository;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 
-/**
-* Interface EloquentRepositoryInterface
-* @package App\Repositories
-*/
 interface EloquentRepositoryInterface
 {
     public function all(): Collection;
