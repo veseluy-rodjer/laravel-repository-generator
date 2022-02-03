@@ -6,9 +6,6 @@ use VeseluyRodjer\RepositoryGenerator\Repository\BaseRepository;
 use App\Repositories\Interfaces\DummyClassInterface;
 use {{ namespacedModel }};
 
-/**
- * Class DummyClass.
- */
 class DummyClass extends BaseRepository implements DummyClassInterface
 {
     protected {{ Model }} $model;
