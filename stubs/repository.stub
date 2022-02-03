@@ -3,7 +3,7 @@
 namespace {{ namespace }};
 
 use VeseluyRodjer\RepositoryGenerator\Repository\BaseRepository;
-use App\Repositories\DummyClassInterface;
+use App\Repositories\Interfaces\DummyClassInterface;
 use {{ namespacedModel }};
 
 /**
