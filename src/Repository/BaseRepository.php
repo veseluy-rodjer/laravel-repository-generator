@@ -2,50 +2,45 @@
 
 namespace TimWassenburg\RepositoryGenerator\Repository;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Model;
 
 class BaseRepository implements EloquentRepositoryInterface
 {
-    /**
-     * @var Model
-     */
-    protected $model;
+    protected Model $model;
 
-    /**
-     * BaseRepository constructor.
-     *
-     * @param Model $model
-     */
     public function __construct(Model $model)
     {
         $this->model = $model;
     }
 
-    /**
-     * @return Collection
-     */
-    public function all()
+    public function all(): Collection
     {
         return $this->model->all();
     }
 
-    /**
-     * @param array $attributes
-     *
-     * @return Model
-     */
     public function create(array $attributes): Model
     {
         return $this->model->create($attributes);
     }
 
-    /**
-     * @param $id
-     * @return Model
-     */
-    public function find($id): ?Model
+    public function findOrFail(int $id): ?Model
     {
-        return $this->model->find($id);
+        return $this->model->findOrFail($id);
+    }
+
+    public function where($attr, $val): ?Collection
+    {
+        return $this->model->where($attr, $val)->get();
+    }
+
+    public function update(int $id, array $attributes): ?bool
+    {
+        return $this->model->findOrFail($id)->update($attributes);
+    }
+
+    public function delete(int $id): ?bool
+    {
+        return $this->model->findOrFail($id)->delete();
     }
 }
