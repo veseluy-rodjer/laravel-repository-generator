@@ -16,9 +16,7 @@ class RepositoryGeneratorServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (config('repository-generator.auto_bind_interfaces')) {
-            $this->bindInterfaces();
-        }
+        $this->bindInterfaces();
 
         $this->mergeConfigFrom(__DIR__.'/../config/repository-generator.php', 'repository-generator');
     }
@@ -40,12 +38,12 @@ class RepositoryGeneratorServiceProvider extends ServiceProvider
     protected function bindInterfaces()
     {
         $path = app_path('Repositories/Eloquent');
-        $files = (file_exists($path)) ? File::files($path) : [];
+        $files = file_exists($path) ? File::files($path) : [];
 
         foreach ($files as $file) {
             // todo: this can use some improvement
             $repository = 'App\Repositories\Eloquent\\' . $file->getFilenameWithoutExtension();
-            $repositoryInterface = 'App\Repositories\\' . $file->getFilenameWithoutExtension() . 'Interface';
+            $repositoryInterface = 'App\Repositories\Interfaces\\' . $file->getFilenameWithoutExtension() . 'Interface';
 
             $this->app->bind($repositoryInterface, $repository);
         }
