@@ -1,12 +1,12 @@
 {
-    "name": "timwassenburg/laravel-repository-generator",
+    "name": "veseluy-rodjer/laravel-repository-generator",
     "description": "Generate Laravel repositories",
     "keywords": ["generator", "php", "cli", "generator", "laravel", "artisan"],
-    "homepage": "https://github.com/timwassenburg/laravel-repository-generator",
+    "homepage": "https://github.com/veseluy-rodjer/laravel-repository-generator",
     "license": "MIT",
     "authors": [
         {
-            "name": "Tim Wassenburg"
+            "name": "Veseluy Rodjer"
         }
     ],
     "require": {
@@ -15,13 +15,13 @@
     },
     "autoload": {
         "psr-4": {
-            "TimWassenburg\\RepositoryGenerator\\": "src/"
+            "VeseluyRodjer\\RepositoryGenerator\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "TimWassenburg\\RepositoryGenerator\\RepositoryGeneratorServiceProvider"
+                "VeseluyRodjer\\RepositoryGenerator\\RepositoryGeneratorServiceProvider"
             ]
         }
     }

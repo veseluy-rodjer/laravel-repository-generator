@@ -1,6 +1,6 @@
 <?php
 
-namespace TimWassenburg\RepositoryGenerator\Repository;
+namespace VeseluyRodjer\RepositoryGenerator\Repository;
 
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;

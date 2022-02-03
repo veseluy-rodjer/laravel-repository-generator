@@ -1,6 +1,6 @@
 <?php
 
-namespace TimWassenburg\RepositoryGenerator\Console;
+namespace VeseluyRodjer\RepositoryGenerator\Console;
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Facades\Artisan;

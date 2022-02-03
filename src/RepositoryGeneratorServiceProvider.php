@@ -1,11 +1,11 @@
 <?php
 
-namespace TimWassenburg\RepositoryGenerator;
+namespace VeseluyRodjer\RepositoryGenerator;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
-use TimWassenburg\RepositoryGenerator\Console\MakeRepository;
-use TimWassenburg\RepositoryGenerator\Console\MakeRepositoryInterface;
+use VeseluyRodjer\RepositoryGenerator\Console\MakeRepository;
+use VeseluyRodjer\RepositoryGenerator\Console\MakeRepositoryInterface;
 
 class RepositoryGeneratorServiceProvider extends ServiceProvider
 {
