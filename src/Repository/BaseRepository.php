@@ -2,10 +2,10 @@
 
 namespace VeseluyRodjer\RepositoryGenerator\Repository;
 
-use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
 
-class BaseRepository implements EloquentRepositoryInterface
+class BaseRepository implements BaseRepositoryInterface
 {
     public function all(): Collection
     {
@@ -17,23 +17,23 @@ class BaseRepository implements EloquentRepositoryInterface
         return $this->model->create($attributes);
     }
 
-    public function findOrFail(int $id): ?Model
+    public function findOrFail(int $id): Model
     {
         return $this->model->findOrFail($id);
     }
 
-    public function where($attr, $val): ?Collection
+    public function where(string $attr, string|int $val): Collection
     {
         return $this->model->where($attr, $val)->get();
     }
 
-    public function update(int $id, array $attributes): ?bool
+    public function update(int $id, array $attributes): bool
     {
-        return $this->model->findOrFail($id)->update($attributes);
+        return $this->findOrFail($id)->update($attributes);
     }
 
-    public function delete(int $id): ?bool
+    public function destroy(int $id): bool
     {
-        return $this->model->findOrFail($id)->delete();
+        return $this->model->destroy($id);
     }
 }
