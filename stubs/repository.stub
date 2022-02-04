@@ -8,10 +8,7 @@ use {{ namespacedModel }};
 
 class DummyClass extends BaseRepository implements DummyClassInterface
 {
-    protected {{ Model }} $model;
-
-    public function __construct({{ Model }} $model)
-    {
-        $this->model = $model;
-    }
+    public function __construct(
+        protected {{ Model }} $model
+    ) {}
 }
