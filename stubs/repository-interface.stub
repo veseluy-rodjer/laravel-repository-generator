@@ -2,9 +2,9 @@
 
 namespace {{ namespace }};
 
-use VeseluyRodjer\RepositoryGenerator\Repository\EloquentRepositoryInterface;
+use VeseluyRodjer\RepositoryGenerator\Repository\BaseRepositoryInterface;
 
-interface DummyClass extends EloquentRepositoryInterface
+interface DummyClass extends BaseRepositoryInterface
 {
    // Extend with your methods
 }
