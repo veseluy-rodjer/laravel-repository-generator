@@ -15,7 +15,7 @@ interface BaseRepositoryInterface
 
     public function where(string $attr, string|int $val): Collection;
 
-    public function update(int $id, array $attributes): bool;
+    public function update(array $attributes, int $id): bool;
 
     public function destroy(int $id): bool;
 }

@@ -27,7 +27,7 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->model->where($attr, $val)->get();
     }
 
-    public function update(int $id, array $attributes): bool
+    public function update(array $attributes, int $id): bool
     {
         return $this->findOrFail($id)->update($attributes);
     }
