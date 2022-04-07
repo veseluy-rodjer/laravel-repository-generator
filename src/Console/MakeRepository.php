@@ -66,9 +66,14 @@ class MakeRepository extends GeneratorCommand
      */
     protected function replaceNamespace(&$stub, $name)
     {
-        $classname = Str::replace('Repository', '', $this->getNameInput());
-        $stub = Str::replace('{{ Model }}', $classname, $stub);
-        $stub = Str::replace('{{ namespacedModel }}', 'App\Models\\' . $classname, $stub);
+        $dummyClass = str_replace($this->getNamespace($name).'\\', '', $name);
+        $pathRepositoryInterface = str_replace(['Repository', '/'], ['RepositoryInterface', '\\'], $this->getNameInput());
+        $pathModel = str_replace(['Repository', '/'], ['', '\\'], $this->getNameInput());
+        $model = str_replace('Repository', '', $dummyClass);
+
+        $stub = str_replace('{{ PathModel }}', $pathModel, $stub);
+        $stub = str_replace('{{ Model }}', $model, $stub);
+        $stub = str_replace('{{ PathRepositoryInterface }}', $pathRepositoryInterface, $stub);
 
         return parent::replaceNamespace($stub, $name);
     }

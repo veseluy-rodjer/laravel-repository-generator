@@ -2,9 +2,9 @@
 
 namespace {{ namespace }};
 
+use App\Models\{{ PathModel }};
 use VeseluyRodjer\RepositoryGenerator\Repository\BaseRepository;
-use App\Repositories\Interfaces\DummyClassInterface;
-use {{ namespacedModel }};
+use App\Repositories\Interfaces\{{ PathRepositoryInterface }};
 
 class DummyClass extends BaseRepository implements DummyClassInterface
 {
