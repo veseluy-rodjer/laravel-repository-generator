@@ -3,18 +3,18 @@
 namespace VeseluyRodjer\RepositoryGenerator\Repository;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Builder;
 
 class BaseRepository
 {
-    public function all(): Collection
+    public function getAll(): Builder
     {
-        return $this->model->query()->all();
+        return $this->model->query()->getAll();
     }
 
     public function create(array $attributes): Model
     {
-        return $this->model->query()->create($attributes);
+        return $this->model->create($attributes);
     }
 
     public function findOrFail(int $id): Model
@@ -22,9 +22,9 @@ class BaseRepository
         return $this->model->query()->findOrFail($id);
     }
 
-    public function where(string $attr, string|int $val): Collection
+    public function where(string $attr, string|int $val): Builder
     {
-        return $this->model->query()->where($attr, $val)->get();
+        return $this->model->query()->where($attr, $val);
     }
 
     public function update(array $attributes, int $id): bool
@@ -32,8 +32,8 @@ class BaseRepository
         return $this->findOrFail($id)->update($attributes);
     }
 
-    public function destroy(int $id): bool
+    public function delete(int $id): bool
     {
-        return $this->model->query()->destroy($id);
+        return $this->where('id', $id)->delete();
     }
 }
