@@ -40,9 +40,6 @@ class MakeRepository extends GeneratorCommand
 
     public function handle()
     {
-        // Generate the repository interface
-        $this->call('make:repository-interface', ['name' => $this->getNameInput() . 'Interface']);
-
         return parent::handle();
     }
 
@@ -54,7 +51,7 @@ class MakeRepository extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Repositories\Eloquent';
+        return $rootNamespace.'\Repositories';
     }
 
     /**
