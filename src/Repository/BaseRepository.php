@@ -36,4 +36,9 @@ class BaseRepository
     {
         return $this->where('id', $id)->delete();
     }
+
+    public function statusFilter(int $status): Builder
+    {
+        return $this->model->query()->where('status', $status);
+    }
 }
