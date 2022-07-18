@@ -9,7 +9,7 @@ class BaseRepository
 {
     public function getAll(): Builder
     {
-        return $this->model->query()->getAll();
+        return $this->model->newQuery()->getAll();
     }
 
     public function create(array $attributes): Model
@@ -19,12 +19,12 @@ class BaseRepository
 
     public function findOrFail(int $id): Model
     {
-        return $this->model->query()->findOrFail($id);
+        return $this->model->newQuery()->findOrFail($id);
     }
 
     public function where(string $attr, string|int $val): Builder
     {
-        return $this->model->query()->where($attr, $val);
+        return $this->model->newQuery()->where($attr, $val);
     }
 
     public function update(array $attributes, int $id): bool
@@ -39,6 +39,6 @@ class BaseRepository
 
     public function statusFilter(int $status): Builder
     {
-        return $this->model->query()->where('status', $status);
+        return $this->model->newQuery()->where('status', $status);
     }
 }
