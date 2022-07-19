@@ -17,28 +17,28 @@ class BaseRepository
         return $this->model->create($attributes);
     }
 
-    public function findOrFail(int $id): Model
+    public function findModel(int $id): Builder
     {
-        return $this->model->newQuery()->findOrFail($id);
+        return $this->model->newQuery()->findModel($id);
     }
 
-    public function where(string $attr, string|int $val): Builder
+    public function filter(string $attr, string|int $val): Builder
     {
-        return $this->model->newQuery()->where($attr, $val);
+        return $this->model->newQuery()->filter($attr, $val);
     }
 
     public function update(array $attributes, int $id): bool
     {
-        return $this->findOrFail($id)->update($attributes);
+        return $this->filter('id', $id)->update($attributes);
     }
 
     public function delete(int $id): bool
     {
-        return $this->where('id', $id)->delete();
+        return $this->filter('id', $id)->delete();
     }
 
     public function statusFilter(int $status): Builder
     {
-        return $this->model->newQuery()->where('status', $status);
+        return $this->model->newQuery()->statusFilter($status);
     }
 }
