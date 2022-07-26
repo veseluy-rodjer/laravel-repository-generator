@@ -41,4 +41,9 @@ class BaseRepository
     {
         return $this->model->newQuery()->statusFilter($status);
     }
+
+    public function filterByCompare(string $attr, string $compare, string|int $val): Builder
+    {
+        return $this->model->newQuery()->filterByCompare($attr, $compare, $val);
+    }
 }
