@@ -14,7 +14,7 @@ class BaseRepository
 
     public function create(array $attributes): Model
     {
-        return $this->model->create($attributes);
+        return $this->model->newQuery()->create($attributes);
     }
 
     public function findModel(int $id): Model
