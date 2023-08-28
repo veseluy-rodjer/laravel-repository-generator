@@ -76,7 +76,7 @@ class BaseRepository
         return $this->model->newQuery()->filterByCompare($attr, $compare, $val);
     }
 
-    public function sort(string $attr, string $direction): Builder
+    public function sort(string $attr, string $direction = 'asc'): Builder
     {
         return $this->model->newQuery()->sort($attr, $direction);
     }
